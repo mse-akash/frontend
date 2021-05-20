@@ -1,0 +1,82 @@
+<div class="card" style="width: 40rem; margin: 10px;">
+    <div class="card-body">
+        <div>
+            <table class="table">
+                <div class="form-group row">
+                    <tr>
+                        <div class="form-inline  form-group">
+                            <td><label for="functionalArea">Functional Area:</label></td>
+                            <td> <select id="inputState" class="form-inline" name="functionalArea"
+                                    [(ngModel)]="functionalArea">
+                                    <option *ngFor="let o of functionalAreas">{{o}}</option>
+                                </select></td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="form-inline  form-group">
+                            <td> <label for="validationModel">Validation Model:</label>
+                            <td> <select id="inputState" class="form-inline" name="validationModel"
+                                    [(ngModel)]="validationModel">
+                                    <option *ngFor="let o of validationModels">{{o}}</option>
+                                </select></td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="form-inline  form-group">
+                            <td> <label for="modelMode">Model Mode:</label></td>
+                            <td> <select id="inputState" class="form-inline" name="modelMode" [(ngModel)]="modelMode">
+                                    <option *ngFor="let o of modelModes">{{o}}</option>
+                                </select></td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="form-inline  form-group">
+                            <td> <label for="market">Market:</label></td>
+                            <td><select id="inputState" class="form-inline" name="market" [(ngModel)]="market">
+                                    <option *ngFor="let o of markets">{{o}}</option>
+                                </select></td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="form-inline  form-group">
+                            <td> <label for="output">Output:</label></td>
+                            <td> <select id="inputState" class="form-inline" name="outout" [(ngModel)]="output">
+                                    <option *ngFor="let o of outputs">{{o}}</option>
+                                </select></td>
+                        </div>
+                    </tr>
+                </div>
+            </table>
+            <button name="query" (click)="getData()" type="submit" class="mb-5 mr-sm-5 btn btn-primary btn-lg"
+                style="align-self: center; margin-left:170px;">Ceate Client Print View</button>
+        </div>
+    </div>
+</div>
+<div>
+    <table class="table " *ngIf="show">
+        <thead class="thead-dark ">
+            <tr>
+                <th>Attribute</th>
+                <th>Type</th>
+                <th>Internal</th>
+                <th>FIXML Mapping</th>
+                <th>Format</th>
+                <th>FIX Tag</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let obj of list" name="obj">
+                <td>{{obj.attribute}}</td>
+                <td>{{obj.type}}</td>
+                <td>{{obj.internal}}</td>
+                <td>{{obj.fixmlMapping}}</td>
+                <td>{{obj.format}}</td>
+                <td>{{obj.fixTag}}</td>
+                <td>{{obj.description}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
